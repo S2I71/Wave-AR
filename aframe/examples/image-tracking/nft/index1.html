@@ -1,15 +1,43 @@
 <script src="https://cdn.jsdelivr.net/gh/aframevr/aframe@1c2407b26c61958baa93967b5412487cd94b290b/dist/aframe-master.min.js"></script>
 
 <script src="https://raw.githack.com/S2I71/Wave-AR/main/aframe/build/aframe-ar-nft.js"></script>
+
+<style>
+#container {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 10px #333 solid;
+}
+#videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+</style>
 <div id="container">
 	<video autoplay="true" id="videoElement">
 	
 	</video>
 </div>
 <script
+var video = document.querySelector("#videoElement");
+
+if (navigator.mediaDevices.getUserMedia) {
+  navigator.mediaDevices.getUserMedia({ video: true })
+    .then(function (stream) {
+      video.srcObject = stream;
+    })
+    .catch(function (err0r) {
+      console.log("Something went wrong!");
+    });
+}
+></script>
+<script
   src="https://thunkable.github.io/webviewer-extension/thunkableWebviewerExtension.js"
   type="text/javascript"
 ></script>
+
 
 <script>
   window.onload = function() {
